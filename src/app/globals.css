@@ -1,26 +1,219 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: ui-rounded, "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #fff9f2;
+  --foreground: #433653;
+  --site-page-background: #fff9f2;
+  --site-navbar-background: #f2eafa;
+  --site-navbar-text: #514263;
+  --site-heading-text: #4b3766;
+  --site-body-text: #62566f;
+  --site-surface-background: #fffefa;
+  --site-accent-background: #8060b4;
+  --site-accent-text: #fffefa;
+  --site-footer-background: #f9e9ee;
+  --site-footer-text: #674f61;
+  --card: #fffefa;
+  --card-foreground: #433653;
+  --popover: #fffefa;
+  --popover-foreground: #433653;
+  --primary: #8060b4;
+  --primary-foreground: #fffefa;
+  --secondary: #f6e8f0;
+  --secondary-foreground: #63485f;
+  --muted: #f2edf5;
+  --muted-foreground: #71677c;
+  --accent: #e5f1e8;
+  --accent-foreground: #3d5a48;
+  --destructive: #b94f63;
+  --border: #e8ddec;
+  --input: #e4d8eb;
+  --ring: #a68bcc;
+  --chart-1: #b69bd6;
+  --chart-2: #e5aabc;
+  --chart-3: #a8c9ae;
+  --chart-4: #f0c98e;
+  --chart-5: #9dc9d0;
+  --radius: 0.9rem;
+  --sidebar: #f7f0f7;
+  --sidebar-foreground: #433653;
+  --sidebar-primary: #8060b4;
+  --sidebar-primary-foreground: #fffefa;
+  --sidebar-accent: #f6e8f0;
+  --sidebar-accent-foreground: #63485f;
+  --sidebar-border: #e8ddec;
+  --sidebar-ring: #a68bcc;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    background-color: var(--site-page-background);
+    color: var(--site-body-text);
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.site-header {
+  background-color: var(--site-navbar-background);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--site-navbar-text) 18%, transparent);
+  color: var(--site-navbar-text);
+}
+
+.site-nav-link {
+  color: inherit;
+  transition: opacity 150ms ease;
+}
+
+.site-nav-link:hover {
+  opacity: 0.72;
+}
+
+.site-footer {
+  background-color: var(--site-footer-background);
+  border-top: 1px solid
+    color-mix(in srgb, var(--site-footer-text) 18%, transparent);
+  color: var(--site-footer-text);
+}
+
+.site-heading {
+  color: var(--site-heading-text);
+}
+
+.site-copy {
+  color: var(--site-body-text);
+}
+
+.site-copy::placeholder,
+.site-input::placeholder {
+  color: var(--site-body-text);
+  opacity: 0.6;
+}
+
+.site-surface {
+  background-color: var(--site-surface-background);
+  border-color: color-mix(in srgb, var(--site-heading-text) 14%, transparent);
+}
+
+.site-button {
+  background-color: var(--site-accent-background);
+  color: var(--site-accent-text);
+  transition: filter 150ms ease;
+}
+
+.site-button:hover {
+  filter: brightness(0.92);
+}
+
+.site-input {
+  background-color: var(--site-surface-background);
+  border-color: color-mix(in srgb, var(--site-body-text) 24%, transparent);
+  color: var(--site-body-text);
+}
+
+.site-control {
+  background-color: color-mix(
+    in srgb,
+    var(--site-page-background) 72%,
+    var(--site-surface-background)
+  );
+  border-color: color-mix(in srgb, var(--site-body-text) 18%, transparent);
+  color: var(--site-body-text);
+}
+
+.site-navbar-button {
+  border-color: color-mix(in srgb, var(--site-navbar-text) 24%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--site-navbar-background) 65%,
+    white
+  );
+  color: var(--site-navbar-text);
 }
