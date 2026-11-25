@@ -40,6 +40,12 @@ export default function RootLayout({
                   Acerca de
                 </Link>
                 <Link
+                  href="/cmstest"
+                  className="site-nav-link"
+                >
+                  CMS Lab
+                </Link>
+                <Link
                   href="/studio"
                   className="site-navbar-button rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors hover:brightness-95"
                 >
